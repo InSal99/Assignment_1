@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivImageProduct"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            android:src="@drawable/pentol"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product 1"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toBottomOf="@id/ivImageProduct"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp15.000"
+            android:textSize="60px"
+            android:textStyle="bold"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tvProductName"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btnLike"
+            android:layout_width="32dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:srcCompat="@drawable/heart_svg_icon"
+            android:tint="@android:color/system_accent2_500"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnShare"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btnShare"
+            android:layout_width="32dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:srcCompat="@drawable/share_svg_vectors"
+            android:tint="@android:color/system_accent2_500"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="12dp"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/cProductDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="12%"
+            android:textColor="@android:color/system_error_500"
+            app:chipBackgroundColor="@android:color/system_error_100"
+            app:chipStrokeColor="@android:color/system_error_100"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductPrice"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvDiscountedPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp17.000"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@id/cProductDiscount"
+            app:layout_constraintTop_toTopOf="@id/cProductDiscount"
+            app:layout_constraintBottom_toBottomOf="@id/cProductDiscount"/>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/d1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:dividerColor="@android:color/system_neutral2_50"
+            android:layout_marginHorizontal="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cProductDiscount"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvProductDescTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi Produk"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/d1"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvProductDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@android:color/system_accent2_500"
+            android:layout_marginHorizontal="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProductDescTitle"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvShowMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selengkapnya"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="bold"
+            android:textSize="40px"
+            android:layout_marginStart="12dp"
+            android:layout_marginVertical="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProductDesc"/>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/d2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:dividerColor="@android:color/system_neutral2_50"
+            android:layout_marginHorizontal="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvShowMore"
+            />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/d3"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            app:dividerColor="@android:color/system_neutral2_50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/d2"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvServingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Penyajian"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/d3"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvServingAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pilih 1"
+            android:textSize="24px"
+            android:textColor="@android:color/system_accent2_500"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@id/tvServingTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvServingTitle"
+            app:layout_constraintBottom_toBottomOf="@id/tvServingTitle"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvServingList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tvServingTitle"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/d4"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            app:dividerColor="@android:color/system_neutral2_50"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvServingList"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catatan Pesanan"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/d4"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="opsional"
+            android:textSize="24px"
+            android:textColor="@android:color/system_accent2_500"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@id/tvNotes"
+            app:layout_constraintTop_toTopOf="@+id/tvNotes"
+            app:layout_constraintBottom_toBottomOf="@id/tvNotes"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contoh: Minta Tissue, ya"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNotes">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvSimilarProductTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Produk Serupa"
+            android:textStyle="bold"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtNotes"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSimilarProducts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            android:layout_marginStart="12dp"
+            android:layout_marginVertical="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSimilarProductTitle"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnCart"
+            android:layout_width="48dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:srcCompat="@drawable/cart_svg_icon"
+            android:tint="@android:color/holo_blue_dark"
+            android:background="@drawable/rounded_rectangle_bg"
+            android:layout_marginHorizontal="12dp"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvSimilarProducts"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddToCart"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:text="Keranjang"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="12dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            app:layout_constraintStart_toEndOf="@id/btnCart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
