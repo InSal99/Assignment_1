@@ -12,7 +12,7 @@ class ServiceAdapter(private val services: List<Service>, private val selectedSe
 
     class ServiceViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val tvServiceName: TextView = itemView.findViewById(R.id.tvServiceName)
-        val tvServiceInfo: TextView = itemView.findViewById(R.id.tvServicInfo)
+//        val tvServiceInfo: TextView = itemView.findViewById(R.id.tvServicInfo)
         val rbisChecked: RadioButton = itemView.findViewById(R.id.rbIsChecked)
     }
 
@@ -28,7 +28,7 @@ class ServiceAdapter(private val services: List<Service>, private val selectedSe
     override fun onBindViewHolder(holder: ServiceViewHolder, position: Int) {
         val currentItem = services[position]
         holder.tvServiceName.text = currentItem.name
-        holder.tvServiceInfo.text = currentItem.info
+//        holder.tvServiceInfo.text = currentItem.info
         holder.rbisChecked.isChecked = currentItem.isChecked
 
         holder.rbisChecked.setOnClickListener {
