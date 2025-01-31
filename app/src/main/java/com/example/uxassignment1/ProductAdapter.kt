@@ -28,7 +28,7 @@ class ProductAdapter(private val products: List<Product>): RecyclerView.Adapter<
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val currentItem = products[position]
         holder.tvProductName.text = currentItem.name
-//        holder.ivProductImage.setImageResource(currentItem.image)
+        holder.ivProductImage.setImageResource(currentItem.image)
         holder.tvProductPrice.text = currentItem.price
         holder.cProductDiscount.text = currentItem.discount
         holder.tvDiscountedPrice.text = currentItem.discountedPrice
