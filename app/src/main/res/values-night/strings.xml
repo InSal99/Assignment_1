@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="product_name">Produk 1</string>
+    <string name="product_price">Rp15.000</string>
+    <string name="product_discount">12%</string>
+    <string name="discounted_price">Rp17.000</string>
+    <string name="product_desc_title">Deskripsi Produk</string>
+    <string name="product_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="show_more">Selengkapnya</string>
+    <string name="serving_title">Penyajian</string>
+    <string name="serving_amount">pilih 1</string>
+    <string name="notes">Catatan Pesanan</string>
+    <string name="optional">opsional</string>
+    <string name="notes_placeholder">Contoh: Minta Tissue, ya</string>
+    <string name="similar_product_title">Produk Serupa</string>
+    <string name="add_to_cart_button">Keranjang</string>
+    <string name="product_item_name">Lorem ipsum dolor sit amet, consectetur adipiscing elit</string>
+    <string name="product_item_price">Rp15.000</string>
+    <string name="product_item_discount">12%</string>
+    <string name="product_item_discounted_price"><strike>Rp17.000</strike></string>
+    <string name="service_item_name">service name</string>
+    <string name="service_item_info">+ 2.000</string>
+</resources>
