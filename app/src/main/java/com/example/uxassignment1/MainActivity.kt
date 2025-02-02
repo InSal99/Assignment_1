@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var productRecyclerView: RecyclerView
     private lateinit var productAdapter: ProductAdapter
     private lateinit var products: List<Product>
-    lateinit var productImage: ImageView
+    private lateinit var productImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,17 +35,17 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         services = listOf(
-            Service("SERVICE CHARGE DINE IN", "+2.000", false),
-            Service("Kirim Beku (Panaskan Sendiri)", "", false)
+            Service("Tambah krim kocok", "+10.000", false),
+            Service("Tambah es krim", "+5.000", false)
         )
         Log.d("MyActivity", "Services List: ${services.size}")
 
         products = listOf(
-            Product("Product 1", R.drawable.product_1, "Rp10.000", "10%", "Rp9000"),
-            Product("Product 2", R.drawable.product_2, "Rp10.000", "10%", "Rp9000"),
-            Product("Product 3", R.drawable.product_3, "Rp10.000", "10%", "Rp9000"),
-            Product("Product 4", R.drawable.product_4, "Rp10.000", "10%", "Rp9000"),
-            Product("Product 5", R.drawable.product_current, "Rp10.000", "10%", "Rp9000")
+            Product("Dark Hojicha Sweet Potato Parfait", R.drawable.product_1, "Rp89.000", "0%", "Rp89.000"),
+            Product("Very Berry Pavlovas", R.drawable.product_2, "Rp55.000", "7%", "Rp59.000"),
+            Product("Egg Scones", R.drawable.product_3, "Rp138.500", "10%", "Rp216.000"),
+            Product("Autumn Fatcarons", R.drawable.product_4, "Rp285.000", "5%", "Rp299.000"),
+            Product("Poured Matcha Tiramisu", R.drawable.product_current, "Rp77.000", "10%", "Rp85.000")
 //            Product("Product 1", R.drawable.product_1, "Rp10.000", "10%", "Rp9000"),
 //            Product("Product 2", R.drawable.product_2, "Rp10.000", "10%", "Rp9000"),
 //            Product("Product 3", R.drawable.product_3, "Rp10.000", "10%", "Rp9000"),
@@ -79,32 +79,5 @@ class MainActivity : AppCompatActivity() {
         val startSpacingDecoration = StartSpacingItemDecoration(this, 12) // Space of 50px at the start
         recyclerView.addItemDecoration(startSpacingDecoration)
 
-
-
-    }
-}
-
-class StartSpacingItemDecoration(context: Context, private val spaceInPx: Int) : RecyclerView.ItemDecoration() {
-
-    private val space: Int
-
-    init {
-        // Convert dp to px using the display metrics
-        val density = context.resources.displayMetrics.density
-        space = (spaceInPx * density).toInt()
-    }
-
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-        // Add space only at the start (left/top)
-        if (parent.getChildAdapterPosition(view) == 0) {
-            if (parent.layoutManager is LinearLayoutManager) {
-                val layoutManager = parent.layoutManager as LinearLayoutManager
-                if (layoutManager.orientation == RecyclerView.HORIZONTAL) {
-                    outRect.left = space // Add space on the left for horizontal orientation
-                } else {
-                    outRect.top = space // Add space at the top for vertical orientation
-                }
-            }
-        }
     }
 }

@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">UX Assignment 1</string>
+    <string name="product_name">Poured Matcha Tiramisu</string>
+    <string name="product_price">RpRp77.000"</string>
+    <string name="product_discount">10%</string>
+    <string name="discounted_price"><strike>Rp85.000</strike></string>
+    <string name="product_desc_title">Deskripsi Produk</string>
+    <string name="product_desc">Poured tiramisu, in matcha. A dish well recognized by most of us. it\'s a spin off from our original poured tiramisu menu that had led the way for Scarlett\'s to many of you now, as it went viral few years back.</string>
+    <string name="show_more">Selengkapnya</string>
+    <string name="serving_title">Penyajian</string>
+    <string name="serving_amount">pilih 1</string>
+    <string name="notes">Catatan Pesanan</string>
+    <string name="optional">opsional</string>
+    <string name="notes_placeholder">Contoh: Minta Tissue, ya</string>
+    <string name="similar_product_title">Produk Serupa</string>
+    <string name="add_to_cart_button">Keranjang</string>
+    <string name="product_item_name">Lorem ipsum dolor sit amet, consectetur adipiscing elit</string>
+    <string name="product_item_price">Rp15.000</string>
+    <string name="product_item_discount">12%</string>
+    <string name="product_item_discounted_price"><strike>Rp17.000</strike></string>
+    <string name="service_item_name">service name</string>
+    <string name="service_item_info">+ 2.000</string>
 </resources>

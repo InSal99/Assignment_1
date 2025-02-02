@@ -8,7 +8,7 @@
         android:id="@+id/tvServiceName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="service name"
+        android:text="@string/service_item_name"
         app:layout_constraintBottom_toBottomOf="@id/rbIsChecked"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/rbIsChecked" />
@@ -17,7 +17,7 @@
         android:id="@+id/tvServicInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="+ 2.000"
+        android:text="@string/service_item_info"
         android:textColor="@android:color/system_accent2_500"
         app:layout_constraintBottom_toBottomOf="@id/rbIsChecked"
         app:layout_constraintEnd_toStartOf="@id/rbIsChecked"
