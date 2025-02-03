@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeFragment">
 
     <ScrollView
-        android:id="@+id/main"
+        android:id="@+id/navigation_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:layout_marginBottom="92dp"
-        tools:context=".MainActivity">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -128,44 +125,6 @@
                 app:layout_constraintTop_toBottomOf="@id/cProductDiscount"
                 />
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tvProductDescTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/product_desc_title"
-                android:textStyle="bold"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/d1"/>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tvProductDesc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/product_desc"
-                android:maxLines="2"
-                android:ellipsize="end"
-                android:textColor="@android:color/system_accent2_500"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvProductDescTitle"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/tvShowMore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/Widget.Material3.Button.TextButton"
-                android:text="@string/show_more"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:padding="0dp"
-                android:layout_marginStart="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvProductDesc"/>
-
             <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/d2"
                 android:layout_width="match_parent"
@@ -174,7 +133,7 @@
                 app:dividerColor="@android:color/system_neutral2_50"
                 android:layout_marginHorizontal="12dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvShowMore" />
+                app:layout_constraintTop_toBottomOf="@id/cProductDiscount" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/d3"
@@ -187,49 +146,6 @@
                 app:layout_constraintTop_toBottomOf="@id/d2"/>
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tvServingTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/serving_title"
-                android:textStyle="bold"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/d3"/>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tvServingAmount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/serving_amount"
-                android:textSize="12sp"
-                android:textColor="@android:color/system_accent2_500"
-                android:layout_marginStart="12dp"
-                app:layout_constraintStart_toEndOf="@id/tvServingTitle"
-                app:layout_constraintTop_toTopOf="@+id/tvServingTitle"
-                app:layout_constraintBottom_toBottomOf="@id/tvServingTitle"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvServingList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="12dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginHorizontal="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvServingTitle" />
-
-            <com.google.android.material.divider.MaterialDivider
-                android:id="@+id/d4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:dividerThickness="8dp"
-                android:layout_marginTop="12dp"
-                app:dividerColor="@android:color/system_neutral2_50"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rvServingList" />
-
-            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvNotes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -238,7 +154,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginStart="12dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/d4"/>
+                app:layout_constraintTop_toBottomOf="@+id/d3"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
@@ -267,72 +183,39 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tvSimilarProductTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/similar_product_title"
-                android:textStyle="bold"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtNotes"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvSimilarProducts"
+            <TextView
+                android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginVertical="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSimilarProductTitle"/>
+                android:text="@string/home_fragment"
+                android:gravity="center"
+                android:layout_marginTop="60dp"
+                app:layout_constraintTop_toBottomOf="@+id/edtNotes"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGoToProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Go To Profile"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                app:layout_constraintStart_toStartOf="@id/tvTitle"
+                app:layout_constraintEnd_toEndOf="@id/tvTitle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGoToDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Go To Dialog"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/btnGoToProfile"
+                app:layout_constraintStart_toStartOf="@id/tvTitle"
+                app:layout_constraintEnd_toEndOf="@id/tvTitle"/>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="84dp"
-        app:cardCornerRadius="0dp"
-        android:backgroundTint="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCart"
-        android:layout_width="60dp"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:1"
-        style="@style/Widget.Material3.Button.IconButton.Outlined"
-        app:iconTint="@android:color/holo_blue_dark"
-        app:strokeColor="@android:color/holo_blue_dark"
-        app:icon="@drawable/cart_svg_icon"
-        app:iconGravity="textTop"
-        android:gravity="center"
-        app:cornerRadius="4dp"
-        app:iconSize="24dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAddToCart"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/add_to_cart_button"
-        android:textColor="@color/white"
-        app:icon="@drawable/plus_svg_icon"
-        app:iconGravity="textStart"
-        app:cornerRadius="4dp"
-        android:paddingVertical="16dp"
-        android:layout_marginHorizontal="12dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        app:layout_constraintStart_toEndOf="@id/btnCart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

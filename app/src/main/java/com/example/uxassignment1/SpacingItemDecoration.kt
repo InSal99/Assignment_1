@@ -16,7 +16,6 @@ class StartSpacingItemDecoration(context: Context, private val spaceInPx: Int) :
     }
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-        // Add space only at the start (left/top)
         if (parent.getChildAdapterPosition(view) == 0) {
             if (parent.layoutManager is LinearLayoutManager) {
                 val layoutManager = parent.layoutManager as LinearLayoutManager

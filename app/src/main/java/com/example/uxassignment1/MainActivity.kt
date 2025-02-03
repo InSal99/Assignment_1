@@ -1,38 +1,27 @@
 package com.example.uxassignment1
 
-import android.content.Context
-import android.graphics.Paint
-import android.graphics.Rect
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.uxassignment1.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var serviceRecyclerView: RecyclerView
     private lateinit var serviceAdapter: ServiceAdapter
     private lateinit var services: List<Service>
-    private lateinit var productRecyclerView: RecyclerView
     private lateinit var productAdapter: ProductAdapter
     private lateinit var products: List<Product>
-    private lateinit var productImage: ImageView
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         services = listOf(
             Service("Tambah krim kocok", "+10.000", false),
@@ -46,38 +35,47 @@ class MainActivity : AppCompatActivity() {
             Product("Egg Scones", R.drawable.product_3, "Rp138.500", "10%", "Rp216.000"),
             Product("Autumn Fatcarons", R.drawable.product_4, "Rp285.000", "5%", "Rp299.000"),
             Product("Poured Matcha Tiramisu", R.drawable.product_current, "Rp77.000", "10%", "Rp85.000")
-//            Product("Product 1", R.drawable.product_1, "Rp10.000", "10%", "Rp9000"),
-//            Product("Product 2", R.drawable.product_2, "Rp10.000", "10%", "Rp9000"),
-//            Product("Product 3", R.drawable.product_3, "Rp10.000", "10%", "Rp9000"),
-//            Product("Product 4", R.drawable.product_4, "Rp10.000", "10%", "Rp9000"),
-//            Product("Product 5", R.drawable.product_current, "Rp10.000", "10%", "Rp9000")
         )
         Log.d("MyActivity", "Product List: ${products.size}")
 
-        serviceRecyclerView = findViewById(R.id.rvServingList)
-        serviceRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.rvServingList.layoutManager = LinearLayoutManager(this)
         serviceAdapter = ServiceAdapter(services) { selectedService ->
-            // Handle selection: Uncheck all other items
             services.forEach { it.isChecked = false }
             selectedService.isChecked = true
-            serviceAdapter.notifyDataSetChanged() // Notify adapter to refresh view
+            serviceAdapter.notifyDataSetChanged()
         }
-        serviceRecyclerView.adapter = serviceAdapter
+        binding.rvServingList.adapter = serviceAdapter
 
-        productRecyclerView = findViewById(R.id.rvSimilarProducts)
-        productRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        productAdapter = ProductAdapter(products)
-        productRecyclerView.adapter = productAdapter
+        binding.rvSimilarProducts.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        productAdapter = ProductAdapter(products) { selectedProduct ->
+            val intent = Intent(this, NavigationActivity::class.java)
 
+            // Passing the data (let's assume `selectedItem` has a property `id` and `name`)
+            intent.putExtra("productName", selectedProduct.name)
+            intent.putExtra("productImage", selectedProduct.image)
+            intent.putExtra("productPrice", selectedProduct.price)
+            intent.putExtra("productDiscount", selectedProduct.discount)
+            intent.putExtra("productDiscountedPrice", selectedProduct.discountedPrice)
 
-        val textview = findViewById<TextView>(R.id.tvDiscountedPrice)
-        textview.setPaintFlags(textview.getPaintFlags() or Paint.STRIKE_THRU_TEXT_FLAG)
-
-        val recyclerView = findViewById<RecyclerView>(R.id.rvSimilarProducts)
+            startActivity(intent)
+        }
+        binding.rvSimilarProducts.adapter = productAdapter
 
         // Create the item decoration with desired space (in pixels)
-        val startSpacingDecoration = StartSpacingItemDecoration(this, 12) // Space of 50px at the start
-        recyclerView.addItemDecoration(startSpacingDecoration)
+        val startSpacingDecoration = StartSpacingItemDecoration(this, 12)
+        binding.rvSimilarProducts.addItemDecoration(startSpacingDecoration)
+
+
+
+
+
+
+        /*------------------- Trial Fragments -----------------------*/
+        //go to fragments
+        binding.btnBack.setOnClickListener{
+            val destination = Intent(this, NavigationActivity::class.java)
+            startActivity(destination)
+        }
 
     }
 }

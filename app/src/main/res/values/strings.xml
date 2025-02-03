@@ -20,4 +20,9 @@
     <string name="product_item_discounted_price"><strike>Rp17.000</strike></string>
     <string name="service_item_name">service name</string>
     <string name="service_item_info">+ 2.000</string>
+
+    <string name="home_fragment">This is Home Page</string>
+    <string name="profile_fragment">This is Profile Page</string>
+    <string name="dialog_fragment">Enter Your Name</string>
+    <string name="edt_name_input_hint">input your name here</string>
 </resources>

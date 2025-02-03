@@ -2,23 +2,22 @@ package com.example.uxassignment1
 
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
-import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView.ItemView
+import com.example.uxassignment1.databinding.ServiceItemBinding
 
 class ServiceAdapter(private val services: List<Service>, private val selectedService: (Service) -> Unit): RecyclerView.Adapter<ServiceAdapter.ServiceViewHolder>() {
 
-    class ServiceViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val tvServiceName: TextView = itemView.findViewById(R.id.tvServiceName)
-        val tvServiceInfo: TextView = itemView.findViewById(R.id.tvServicInfo)
-        val rbisChecked: RadioButton = itemView.findViewById(R.id.rbIsChecked)
+    class ServiceViewHolder(binding: ServiceItemBinding): RecyclerView.ViewHolder(binding.root) {
+        val tvServiceName: TextView = binding.tvServiceName
+        val tvServiceInfo: TextView = binding.tvServiceInfo
+        val rbisChecked: RadioButton = binding.rbIsChecked
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.service_item, parent, false)
-        return ServiceViewHolder(itemView)
+        val binding = ServiceItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ServiceViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -34,7 +33,6 @@ class ServiceAdapter(private val services: List<Service>, private val selectedSe
         holder.rbisChecked.setOnClickListener {
             currentItem.isChecked = true
             selectedService(currentItem)
-
             notifyDataSetChanged()
         }
     }
