@@ -59,9 +59,7 @@ class NavigationActivity : AppCompatActivity() {
 //        binding.btnBack.setOnClickListener {
 //            onBackPressed()
 //        }
-    }
 
-    override fun onBackPressed() {
-        super.onBackPressed()  // This will take you back to the previous screen
+
     }
 }

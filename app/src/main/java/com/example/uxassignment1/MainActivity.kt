@@ -1,6 +1,7 @@
 package com.example.uxassignment1
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -75,6 +76,12 @@ class MainActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener{
             val destination = Intent(this, NavigationActivity::class.java)
             startActivity(destination)
+        }
+
+        binding.btnShare.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://x.com")
+            startActivity(intent)
         }
 
     }

@@ -2,7 +2,6 @@ package com.example.uxassignment1
 
 import android.graphics.Paint
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,22 +10,22 @@ import android.widget.Toast
 import com.example.uxassignment1.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
-    companion object{
-        var EXTRA_VALUE = "extra_value"
-    }
+//    companion object{
+//        var EXTRA_VALUE = "extra_value"
+//    }
 
     private  lateinit var binding: FragmentHomeBinding
 
-    private  lateinit var productName: String
-    private  var productImage: Int = 0
-    private  lateinit var productPrice: String
-    private  lateinit var productDiscount: String
-    private  lateinit var productDiscountedPrice: String
+    private  var productName: String = "Product 1"
+    private  var productImage: Int = R.drawable.pentol
+    private  var productPrice: String = "Rp000"
+    private  var productDiscount: String = "-%"
+    private  var productDiscountedPrice: String = "Rp000"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         arguments?.let {
             productName = it.getString("productName", "Product 000")
             productImage = it.getInt("productImage", R.drawable.pentol)
@@ -71,6 +70,11 @@ class HomeFragment : Fragment() {
             dialogFragment.show(mFragmentManager, DialogFragment::class.java.simpleName)
         }
 
+    }
+
+    private fun handleBackPress() {
+        // Handle the back press logic here, like pop the back stack
+        parentFragmentManager.popBackStack()
     }
 
     var dialogListener:DialogFragment.DialogListener = object : DialogFragment.DialogListener {
