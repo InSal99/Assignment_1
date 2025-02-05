@@ -12,7 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- TODO: Update blank fragment layout -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btnBack"
+            android:layout_width="32dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:srcCompat="@drawable/chevron_icon"
+            android:tint="@android:color/system_accent2_500"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="12dp"/>
+
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"

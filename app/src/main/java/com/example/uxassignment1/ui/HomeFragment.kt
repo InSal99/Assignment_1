@@ -2,6 +2,7 @@ package com.example.uxassignment1.ui
 
 import android.graphics.Paint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,12 @@ class HomeFragment : Fragment() {
 //    }
 
     private  lateinit var binding: FragmentHomeBinding
+
+//    private  lateinit var productName: String
+//    private  var productImage: Int = R.drawable.pentol
+//    private  lateinit var productPrice: String
+//    private  lateinit var productDiscount: String
+//    private  lateinit var productDiscountedPrice: String
 
     private  var productName: String = "Product 1"
     private  var productImage: Int = R.drawable.pentol
@@ -37,6 +44,13 @@ class HomeFragment : Fragment() {
             productPrice = it.getString("productPrice", "Rp000")
             productDiscount = it.getString("productDiscount", "-%")
             productDiscountedPrice = it.getString("productDiscountedPrice", "Rp000")
+
+            Log.d("HomeFragment", "productName: $productName")
+            Log.d("HomeFragment", "productImage: $productImage")
+            Log.d("HomeFragment", "productPrice: $productPrice")
+            Log.d("HomeFragment", "productDiscount: $productDiscount")
+            Log.d("HomeFragment", "productDiscountedPrice: $productDiscountedPrice")
+
         }
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -76,7 +90,11 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnBack.setOnClickListener {
-            handleBackPress()
+            if (parentFragmentManager.backStackEntryCount > 0) {
+                parentFragmentManager.popBackStack()
+            } else {
+                activity?.finish()
+            }
         }
 
     }

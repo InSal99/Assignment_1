@@ -3,6 +3,7 @@ package com.example.uxassignment1.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -52,16 +53,35 @@ class MainActivity : AppCompatActivity() {
         productAdapter = ProductAdapter(products) { selectedProduct ->
             val intent = Intent(this, NavigationActivity::class.java)
 
-            // Passing the data (let's assume `selectedItem` has a property `id` and `name`)
             intent.putExtra("productName", selectedProduct.name)
             intent.putExtra("productImage", selectedProduct.image)
             intent.putExtra("productPrice", selectedProduct.price)
             intent.putExtra("productDiscount", selectedProduct.discount)
             intent.putExtra("productDiscountedPrice", selectedProduct.discountedPrice)
 
+            Log.d("SenderActivity", "productName: ${selectedProduct.name}")
+            Log.d("SenderActivity", "productImage: ${selectedProduct.image}")
+
+
             startActivity(intent)
         }
         binding.rvSimilarProducts.adapter = productAdapter
+
+        // Expand and truncate product description
+        binding.btnShowMore.setOnClickListener {
+            val tvDescription = binding.tvProductDesc
+
+            if (tvDescription.maxLines == Integer.MAX_VALUE) {
+                tvDescription.maxLines = 2
+                tvDescription.ellipsize = TextUtils.TruncateAt.END
+                binding.btnShowMore.text = "Selengkapnya"
+            } else {
+                tvDescription.maxLines = Integer.MAX_VALUE
+                tvDescription.ellipsize = null
+                binding.btnShowMore.text = "Lebih Sedikit"
+            }
+        }
+
 
         // Create the item decoration with desired space (in pixels)
         val startSpacingDecoration = StartSpacingItemDecoration(this, 12)
@@ -73,7 +93,6 @@ class MainActivity : AppCompatActivity() {
 
 
         /*------------------- Trial Fragments -----------------------*/
-        //go to fragments
         binding.btnBack.setOnClickListener{
             val destination = Intent(this, NavigationActivity::class.java)
             startActivity(destination)
@@ -84,6 +103,7 @@ class MainActivity : AppCompatActivity() {
             intent.data = Uri.parse("https://x.com")
             startActivity(intent)
         }
+
 
     }
 }

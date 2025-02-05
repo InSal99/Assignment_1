@@ -26,7 +26,13 @@ class NavigationActivity : AppCompatActivity() {
         val productPrice = intent.getStringExtra("productPrice")
         val productDiscount = intent.getStringExtra("productDiscount")
         val productDiscountedPrice = intent.getStringExtra("productDiscountedPrice")
-        Log.d("image res1", productImage.toString())
+
+        Log.d("ReceiverActivity", "productName: $productName")
+        Log.d("ReceiverActivity", "productImage: $productImage")
+        Log.d("ReceiverActivity", "productPrice: $productPrice")
+        Log.d("ReceiverActivity", "productDiscount: $productDiscount")
+        Log.d("ReceiverActivity", "productDiscountedPrice: $productDiscountedPrice")
+
 
 //        binding.tvProductName.text = productName
 //        if (productImage != null) {
@@ -45,50 +51,22 @@ class NavigationActivity : AppCompatActivity() {
         bundle.putString("productPrice", productPrice)
         bundle.putString("productDiscount", productDiscount)
         bundle.putString("productDiscountedPrice", productDiscountedPrice)
+        Log.d("ReceiverActivity", "Passing to fragment productName: $productName")
+        Log.d("ReceiverActivity", "Passing to fragment productImage: $productImage")
+
         fragment1.arguments = bundle
 
         val fragment = mFragmentManager.findFragmentByTag(HomeFragment::class.java.simpleName)
 
         if (fragment == null) {
-            val homeFragment = HomeFragment()
-
             mFragmentManager
                 .beginTransaction()
-                .replace(R.id.navigation_container, homeFragment, HomeFragment::class.java.simpleName)
+                .replace(R.id.navigation_container, fragment1, HomeFragment::class.java.simpleName)
                 .commit()
         }
 
 //        binding.btnBack.setOnClickListener {
 //            onBackPressed()
 //        }
-
-    }
-
-//    override fun onBackPressed() {
-//        // Find the current fragment in the container (replace with your fragment container ID)
-//        val fragment = supportFragmentManager.findFragmentById(R.id.fHome)
-//
-//        // Check if the fragment is an instance of HomeFragment or ProfileFragment
-//        if (fragment is HomeFragment || fragment is ProfileFragment) {
-//            fragment.handleBackPress()  // Call the custom method on the fragment
-//        } else {
-//            // Otherwise, the Activity handles it (default back press behavior)
-//            super.onBackPressed()
-//        }
-//    }
-
-    override fun onBackPressed() {
-        // Get the current fragment
-        val fragment = supportFragmentManager.findFragmentByTag(HomeFragment::class.java.simpleName)
-
-        // Check if the current fragment is HomeFragment or ProfileFragment
-        if (fragment is HomeFragment) {
-            fragment.handleBackPress() // Call the custom back press method in HomeFragment
-        } else if (fragment is ProfileFragment) {
-            fragment.handleBackPress() // Call the custom back press method in ProfileFragment
-        } else {
-            // Default back press behavior
-            super.onBackPressed()
-        }
     }
 }

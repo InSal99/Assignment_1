@@ -252,6 +252,14 @@ class ProfileFragment : Fragment() {
             Log.d("tee", "Captured Image pass")
         }
 
+        binding.btnBack.setOnClickListener {
+            if (parentFragmentManager.backStackEntryCount > 0) {
+                parentFragmentManager.popBackStack()
+            } else {
+                activity?.finish()
+            }
+        }
+
     }
 
 }
