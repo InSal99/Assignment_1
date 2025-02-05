@@ -1,7 +1,4 @@
-package com.example.uxassignment1
-
-import android.view.View
-import androidx.recyclerview.widget.RecyclerView
+package com.example.uxassignment1.ui
 
 data class Service(val name: String, val info: String, var isChecked: Boolean)
 

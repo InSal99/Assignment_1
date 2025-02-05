@@ -10,7 +10,7 @@
     android:layout_marginHorizontal="16dp"
     app:layout_constraintCircleRadius="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".DialogFragment">
+    tools:context=".ui.DialogFragment">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvNameTitle"

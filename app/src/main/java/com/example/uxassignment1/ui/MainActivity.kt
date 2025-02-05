@@ -1,4 +1,4 @@
-package com.example.uxassignment1
+package com.example.uxassignment1.ui
 
 import android.content.Intent
 import android.net.Uri
@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.uxassignment1.R
 import com.example.uxassignment1.databinding.ActivityMainBinding
 
 

@@ -1,4 +1,4 @@
-package com.example.uxassignment1
+package com.example.uxassignment1.ui
 
 import android.graphics.Paint
 import android.view.LayoutInflater

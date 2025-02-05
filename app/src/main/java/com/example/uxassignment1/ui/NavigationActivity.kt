@@ -1,11 +1,10 @@
-package com.example.uxassignment1
+package com.example.uxassignment1.ui
 
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.uxassignment1.R
 import com.example.uxassignment1.databinding.ActivityNavigationBinding
 
 class NavigationActivity : AppCompatActivity() {
@@ -49,17 +48,47 @@ class NavigationActivity : AppCompatActivity() {
         fragment1.arguments = bundle
 
         val fragment = mFragmentManager.findFragmentByTag(HomeFragment::class.java.simpleName)
-        if(fragment !is HomeFragment) {
+
+        if (fragment == null) {
+            val homeFragment = HomeFragment()
+
             mFragmentManager
                 .beginTransaction()
-                .add(R.id.navigation_container, fragment1, HomeFragment::class.java.simpleName)
+                .replace(R.id.navigation_container, homeFragment, HomeFragment::class.java.simpleName)
                 .commit()
         }
-//
+
 //        binding.btnBack.setOnClickListener {
 //            onBackPressed()
 //        }
 
+    }
 
+//    override fun onBackPressed() {
+//        // Find the current fragment in the container (replace with your fragment container ID)
+//        val fragment = supportFragmentManager.findFragmentById(R.id.fHome)
+//
+//        // Check if the fragment is an instance of HomeFragment or ProfileFragment
+//        if (fragment is HomeFragment || fragment is ProfileFragment) {
+//            fragment.handleBackPress()  // Call the custom method on the fragment
+//        } else {
+//            // Otherwise, the Activity handles it (default back press behavior)
+//            super.onBackPressed()
+//        }
+//    }
+
+    override fun onBackPressed() {
+        // Get the current fragment
+        val fragment = supportFragmentManager.findFragmentByTag(HomeFragment::class.java.simpleName)
+
+        // Check if the current fragment is HomeFragment or ProfileFragment
+        if (fragment is HomeFragment) {
+            fragment.handleBackPress() // Call the custom back press method in HomeFragment
+        } else if (fragment is ProfileFragment) {
+            fragment.handleBackPress() // Call the custom back press method in ProfileFragment
+        } else {
+            // Default back press behavior
+            super.onBackPressed()
+        }
     }
 }

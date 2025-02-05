@@ -1,7 +1,6 @@
-package com.example.uxassignment1
+package com.example.uxassignment1.ui
 
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -13,19 +12,21 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.result.launch
-import androidx.core.app.ActivityCompat
 import android.Manifest
-import android.content.Intent
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.example.uxassignment1.R.id.ivPhoto
+import com.example.uxassignment1.R
 import com.example.uxassignment1.databinding.FragmentProfileBinding
 import java.io.File
 
 class ProfileFragment : Fragment() {
     companion object{
         var EXTRA_VALUE = "extra_value"
+    }
+
+
+    fun handleBackPress() {
+        parentFragmentManager.popBackStack()
     }
 
     private lateinit var binding: FragmentProfileBinding
@@ -250,6 +251,7 @@ class ProfileFragment : Fragment() {
             checkCameraPermission()
             Log.d("tee", "Captured Image pass")
         }
+
     }
 
 }

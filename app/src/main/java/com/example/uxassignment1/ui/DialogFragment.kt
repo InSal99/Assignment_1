@@ -1,4 +1,4 @@
-package com.example.uxassignment1
+package com.example.uxassignment1.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.example.uxassignment1.databinding.FragmentDialogBinding
 
 class DialogFragment : DialogFragment() {
     private lateinit var binding: FragmentDialogBinding
-    private var dialogListener:DialogListener? = null
+    private var dialogListener: DialogListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -1,4 +1,4 @@
-package com.example.uxassignment1
+package com.example.uxassignment1.ui
 
 import android.content.Context
 import android.graphics.Rect

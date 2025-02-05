@@ -1,4 +1,4 @@
-package com.example.uxassignment1
+package com.example.uxassignment1.ui
 
 import android.graphics.Paint
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.uxassignment1.R
 import com.example.uxassignment1.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -21,6 +22,10 @@ class HomeFragment : Fragment() {
     private  var productPrice: String = "Rp000"
     private  var productDiscount: String = "-%"
     private  var productDiscountedPrice: String = "Rp000"
+
+    fun handleBackPress() {
+        parentFragmentManager.popBackStack()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -70,14 +75,13 @@ class HomeFragment : Fragment() {
             dialogFragment.show(mFragmentManager, DialogFragment::class.java.simpleName)
         }
 
+        binding.btnBack.setOnClickListener {
+            handleBackPress()
+        }
+
     }
 
-    private fun handleBackPress() {
-        // Handle the back press logic here, like pop the back stack
-        parentFragmentManager.popBackStack()
-    }
-
-    var dialogListener:DialogFragment.DialogListener = object : DialogFragment.DialogListener {
+    var dialogListener: DialogFragment.DialogListener = object : DialogFragment.DialogListener {
         override fun onSubmit(text: String) {
             Toast.makeText(requireActivity(), text, Toast.LENGTH_SHORT).show()
         }
