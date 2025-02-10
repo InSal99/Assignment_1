@@ -98,12 +98,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(destination)
         }
 
-        binding.btnShare.setOnClickListener {
+        binding.btnLike.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("https://x.com")
             startActivity(intent)
         }
 
+        binding.btnShare.setOnClickListener {
+            val destination = Intent(this, ShareProductActivity::class.java)
+            startActivity(destination)
+        }
 
     }
 }

@@ -58,4 +58,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata)
     implementation(libs.androidx.lifecycle.runtime)
     ksp(libs.androidx.room.compiler)
+    implementation("com.google.android.material:material:1.6.0")
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
 }

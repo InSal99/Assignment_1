@@ -1,6 +1,9 @@
 package com.example.uxassignment1.ui
 
+import android.content.Intent
 import android.graphics.Paint
+import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -44,6 +47,16 @@ class ProductAdapter(private val products: List<Product>, private val selectedPr
 
         holder.itemView.setOnClickListener {
             selectedProduct(currentItem)
+
+            val deeplink = "myapp://kuekue//shareProduct?category=vegan&sort=price&filter=cheese"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(deeplink))
+            val uri: Uri? = intent.data
+            val category = uri?.getQueryParameter("category")
+            val sort = uri?.getQueryParameter("sort")
+            val filter = uri?.getQueryParameter("filter")
+            Log.d("DeepLink", "Category: $category")
+            Log.d("DeepLink", "Sort: $sort")
+            Log.d("DeepLink", "Filter: $filter")
         }
     }
 

@@ -25,4 +25,6 @@
     <string name="profile_fragment">This is Profile Page</string>
     <string name="dialog_fragment">Enter Your Name</string>
     <string name="edt_name_input_hint">input your name here</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

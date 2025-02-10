@@ -192,10 +192,6 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    //    private fun createPhotoUri(): Uri? {
-//        val photoFile = File(requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), "photo.jpg")
-//        return FileProvider.getUriForFile(requireContext(), "com.example.uxassignment1.fileprovider", photoFile)
-//    }
     // Helper function to create the Uri for the photo
     private fun createPhotoUri(): Uri? {
         // Use app-specific storage directory for saving photos (scoped storage)
