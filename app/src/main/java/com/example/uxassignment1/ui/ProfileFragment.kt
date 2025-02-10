@@ -256,6 +256,16 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        binding.btnGoToList.setOnClickListener {
+            val fragmentPeople = PeopleFragment()
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(R.id.navigation_container, fragmentPeople, PeopleFragment::class.java.simpleName)
+                addToBackStack(null)
+                commit()
+            }
+        }
+
     }
 
 }
