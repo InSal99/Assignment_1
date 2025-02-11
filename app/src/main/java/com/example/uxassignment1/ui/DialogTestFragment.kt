@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.uxassignment1.databinding.FragmentDialogBinding
 
-class DialogFragment : DialogFragment() {
+open class DialogTestFragment : DialogFragment() {
     private lateinit var binding: FragmentDialogBinding
     private var dialogListener: DialogListener? = null
 
@@ -25,7 +25,7 @@ class DialogFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnSubmit.setOnClickListener {
-            dialogListener?.onSubmit("Hi, " + binding.edtNameInput.editText?.text.toString() + "!")
+//            dialogListener?.onSubmit("Hi, " + binding.edtNameInput.editText?.text.toString() + "!")
             dialog?.dismiss()
 
         }

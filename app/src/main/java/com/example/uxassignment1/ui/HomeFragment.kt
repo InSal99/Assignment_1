@@ -83,12 +83,6 @@ class HomeFragment : Fragment() {
             }
         }
 
-        binding.btnGoToDialog.setOnClickListener {
-            val dialogFragment = DialogFragment()
-            val mFragmentManager = childFragmentManager
-            dialogFragment.show(mFragmentManager, DialogFragment::class.java.simpleName)
-        }
-
         binding.btnBack.setOnClickListener {
             if (parentFragmentManager.backStackEntryCount > 0) {
                 parentFragmentManager.popBackStack()
@@ -99,7 +93,7 @@ class HomeFragment : Fragment() {
 
     }
 
-    var dialogListener: DialogFragment.DialogListener = object : DialogFragment.DialogListener {
+    var dialogListener: DialogTestFragment.DialogListener = object : DialogTestFragment.DialogListener {
         override fun onSubmit(text: String) {
             Toast.makeText(requireActivity(), text, Toast.LENGTH_SHORT).show()
         }

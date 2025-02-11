@@ -71,6 +71,7 @@ class DesignTeamAdapter: RecyclerView.Adapter<DesignTeamAdapter.ViewHolder>() {
     private var onItemClickListener: ((DesignTeam) -> Unit)? = null
     private var onDeleteClickListener: ((DesignTeam) -> Unit)? = null
     private var onUpdateClickListener: ((DesignTeam) -> Unit)? = null
+    private var onAddClickListener: ((DesignTeam) -> Unit)? = null
 
     fun setOnItemClickListener(listener: (DesignTeam) -> Unit) {
         onItemClickListener = listener

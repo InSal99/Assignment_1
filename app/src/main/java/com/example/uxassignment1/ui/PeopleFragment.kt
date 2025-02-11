@@ -15,7 +15,7 @@ import com.example.uxassignment1.databinding.FragmentPeopleBinding
 import com.example.uxassignment1.viewmodel.DesignTeamViewModel
 import com.example.uxassignment1.viewmodel.DesignTeamViewModelFactory
 
-class PeopleFragment : Fragment() {
+class PeopleFragment : Fragment(), UpdateDialogFragment.OnUpdateListener, AddDialogFragment.OnAddListener {
 
     private lateinit var binding: FragmentPeopleBinding
     private lateinit var viewModel: DesignTeamViewModel
@@ -67,13 +67,33 @@ class PeopleFragment : Fragment() {
         }
 
         designTeamAdapter.setOnUpdateClickListener { designTeam ->
-//            showUpdate dialog(designTeam)
-            Toast.makeText(requireContext(), "${designTeam.name} deleted", Toast.LENGTH_SHORT).show()
+            showUpdateDialog(designTeam)
+
         }
 
     }
 
+    private fun showUpdateDialog(designTeam: DesignTeam) {
+        val dialogFragment = UpdateDialogFragment()
+        dialogFragment.setDesignTeam(designTeam) // Pass the existing DesignTeam data
+        dialogFragment.show(childFragmentManager, "UpdateDialog")
+        Toast.makeText(requireContext(), "Updating Data", Toast.LENGTH_SHORT).show()
+    }
 
+    private fun showAddDialog() {
+        val dialogFragment = AddDialogFragment()
+        dialogFragment.show(childFragmentManager, "AddDesignTeamDialog")
+    }
+
+    override fun onAdd(designTeam: DesignTeam) {
+        viewModel.insert(designTeam) // Call the insert method in ViewModel
+        Toast.makeText(requireContext(), "${designTeam.name} added", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onUpdate(designTeam: DesignTeam) {
+        viewModel.update(designTeam)
+        Toast.makeText(requireContext(), "${designTeam.name} updated", Toast.LENGTH_SHORT).show()
+    }
 
     private fun initViewModel() {
         viewModel.getDesignTeam()
@@ -109,14 +129,16 @@ class PeopleFragment : Fragment() {
         initDesignTeam()
         observeDesignTeams()
 
-
         return binding.root
     }
 
-    var dialogListener: DialogFragment.DialogListener = object : DialogFragment.DialogListener {
-        override fun onSubmit(text: String) {
-            Toast.makeText(requireActivity(), text, Toast.LENGTH_SHORT).show()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.fabAdd.setOnClickListener {
+            showAddDialog()
         }
+
     }
 
 }
