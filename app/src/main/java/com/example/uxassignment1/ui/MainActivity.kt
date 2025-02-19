@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material3.ModalBottomSheet
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.uxassignment1.R
 import com.example.uxassignment1.databinding.ActivityMainBinding
@@ -107,6 +108,11 @@ class MainActivity : AppCompatActivity() {
         binding.btnShare.setOnClickListener {
             val destination = Intent(this, ShareProductActivity::class.java)
             startActivity(destination)
+        }
+
+        binding.btnCart.setOnClickListener {
+            val bottomSheetFragment = BottomsheetFragment()
+            bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
         }
 
     }
