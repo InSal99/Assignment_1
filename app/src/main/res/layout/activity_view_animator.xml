@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.ViewAnimatorActivity"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Animation Example"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal" />
+
+    <View
+        android:id="@+id/animatedView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@android:color/holo_blue_light"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        style="?android:attr/progressBarStyleHorizontal"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnNumberAnimation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Number Animation" />
+
+            <Button
+                android:id="@+id/btnTranslation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Translation Animation" />
+
+            <Button
+                android:id="@+id/btnColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Color Animation" />
+
+            <Button
+                android:id="@+id/btnWave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wave Animation" />
+
+            <Button
+                android:id="@+id/btnFlip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Flip Animation" />
+
+            <Button
+                android:id="@+id/btnTypewriter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Typewriter Animation" />
+
+            <Button
+                android:id="@+id/btnShimmer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shimmer Effect" />
+
+            <Button
+                android:id="@+id/btnParticle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Particle Effect" />
+
+            <Button
+                android:id="@+id/btnBounce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bounce Effect" />
+
+            <Button
+                android:id="@+id/btnCircularProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Circular Progress Animation" />
+
+            <Button
+                android:id="@+id/btnButtonPress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button Press Effect" />
+
+            <Button
+                android:id="@+id/btnGradientBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gradient Background Animation" />
+
+            <Button android:id="@+id/btnReset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reset Animations" />
+
+            <Button android:id="@+id/btnNSharedElements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shared Elements" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

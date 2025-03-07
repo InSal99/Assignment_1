@@ -35,8 +35,6 @@ class BottomsheetFragment : BottomSheetDialogFragment() {
 
         // Get BottomSheetBehavior from the bottom sheet
         val bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet!!)
-//        val modalBottomSheetBehavior = (bottomSheet.dialog as BottomSheetDialog).behavior
-// Use this to programmatically apply behavior attributes
 
         // Make the bottom sheet draggable and set it to full-screen when expanded
         bottomSheetBehavior.isDraggable = true
@@ -64,7 +62,6 @@ class BottomsheetFragment : BottomSheetDialogFragment() {
                     }
                     BottomSheetBehavior.STATE_COLLAPSED -> {
                         // Minimized (peek state)
-//                        dismiss()
                     }
                     BottomSheetBehavior.STATE_HIDDEN -> {
                         // Bottom sheet is hidden

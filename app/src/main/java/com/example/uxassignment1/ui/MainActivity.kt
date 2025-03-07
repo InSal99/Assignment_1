@@ -1,5 +1,6 @@
 package com.example.uxassignment1.ui
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         binding.rvServingList.adapter = serviceAdapter
 
         binding.rvSimilarProducts.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        productAdapter = ProductAdapter(products) { selectedProduct ->
+        productAdapter = ProductAdapter(products) { selectedProduct, sharedElementView ->
             val intent = Intent(this, NavigationActivity::class.java)
 
             intent.putExtra("productName", selectedProduct.name)
@@ -59,12 +60,19 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("productPrice", selectedProduct.price)
             intent.putExtra("productDiscount", selectedProduct.discount)
             intent.putExtra("productDiscountedPrice", selectedProduct.discountedPrice)
+            intent.putExtra("transitionName", sharedElementView.transitionName) // Add this line
 
             Log.d("SenderActivity", "productName: ${selectedProduct.name}")
             Log.d("SenderActivity", "productImage: ${selectedProduct.image}")
 
+            // Create the transition animation
+            val options = ActivityOptions.makeSceneTransitionAnimation(
+                this,
+                sharedElementView, // The shared element view (ImageView)
+                sharedElementView.transitionName // The transition name
+            )
 
-            startActivity(intent)
+            startActivity(intent, options.toBundle())
         }
         binding.rvSimilarProducts.adapter = productAdapter
 
@@ -113,6 +121,11 @@ class MainActivity : AppCompatActivity() {
         binding.btnCart.setOnClickListener {
             val bottomSheetFragment = BottomsheetFragment()
             bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+        }
+
+        binding.btnCart.setOnClickListener {
+            val destination = Intent(this, ViewAnimatorActivity::class.java)
+            startActivity(destination)
         }
 
     }

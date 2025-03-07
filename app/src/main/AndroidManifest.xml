@@ -22,6 +22,9 @@
         android:theme="@style/Theme.UXAssignment1"
         tools:targetApi="31">
         <activity
+            android:name=".ui.ViewAnimatorActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.ViewPagerTabLayoutActivity"
             android:exported="false" />
         <activity

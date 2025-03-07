@@ -1,6 +1,7 @@
 package com.example.uxassignment1.ui
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,11 +16,15 @@ class NavigationActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
 //            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
 //            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
 //            insets
 //        }
+
+        // Retrieve the transition name from the intent
+        val transitionName = intent.getStringExtra("transitionName")
 
         val productName = intent.getStringExtra("productName")
         val productImage = intent.getIntExtra("productImage", R.drawable.pentol)
@@ -51,8 +56,10 @@ class NavigationActivity : AppCompatActivity() {
         bundle.putString("productPrice", productPrice)
         bundle.putString("productDiscount", productDiscount)
         bundle.putString("productDiscountedPrice", productDiscountedPrice)
+        bundle.putString("transitionName", transitionName) // Pass the transition name
         Log.d("ReceiverActivity", "Passing to fragment productName: $productName")
         Log.d("ReceiverActivity", "Passing to fragment productImage: $productImage")
+        Log.d("ReceiverActivity", "Passing to fragment transitionName: $transitionName")
 
         fragment1.arguments = bundle
 

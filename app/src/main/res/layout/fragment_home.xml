@@ -19,6 +19,7 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivImageProduct"
+                android:transitionName="product_image_transition"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"

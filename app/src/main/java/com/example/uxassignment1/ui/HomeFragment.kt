@@ -1,15 +1,18 @@
 package com.example.uxassignment1.ui
 
+//import android.R
 import android.graphics.Paint
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.uxassignment1.R
 import com.example.uxassignment1.databinding.FragmentHomeBinding
+import com.google.android.material.imageview.ShapeableImageView
+
 
 class HomeFragment : Fragment() {
 //    companion object{
@@ -39,6 +42,16 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         arguments?.let {
+
+//            // Retrieve the transition name from the arguments
+//            val transitionName = arguments?.getString("transitionName")
+//            val imageView = requireView().findViewById<ShapeableImageView>(R.id.ivImageProduct)
+//
+//            // Set the transition name on the shared element
+//            if (transitionName != null) {
+//                imageView.transitionName = transitionName
+//            }
+
             productName = it.getString("productName", "Product 000")
             productImage = it.getInt("productImage", R.drawable.pentol)
             productPrice = it.getString("productPrice", "Rp000")
@@ -56,7 +69,10 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         binding.tvProductName.text = productName
-        binding.ivImageProduct.setImageResource(productImage)
+//        binding.ivImageProduct.setImageResource(productImage)
+        if (productImage != null) {
+            binding.ivImageProduct.setImageResource(productImage)
+        }
         binding.tvProductPrice.text = productPrice
         binding.cProductDiscount.text = productDiscount
         binding.tvDiscountedPrice.text = productDiscountedPrice
@@ -68,6 +84,26 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+//        // Ensure the shared element transition is properly handled
+//        val imageView: ShapeableImageView = binding.ivImageProduct
+//        if (arguments != null) {
+//            val transitionName = requireArguments().getString("product_image_transition")
+//            if (transitionName != null) {
+//                imageView.transitionName = transitionName
+//            }
+//        }
+
+        // Retrieve the transition name from the arguments
+        val transitionName = arguments?.getString("transitionName")
+        val imageView: ShapeableImageView = binding.ivImageProduct
+
+        // Set the transition name on the shared element
+        if (transitionName != null) {
+            imageView.transitionName = transitionName
+        }
+
         binding.btnGoToProfile.setOnClickListener {
             val fragmentProfile = ProfileFragment()
 

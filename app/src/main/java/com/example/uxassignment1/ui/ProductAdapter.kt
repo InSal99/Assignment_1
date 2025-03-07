@@ -5,6 +5,7 @@ import android.graphics.Paint
 import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -13,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.uxassignment1.databinding.ProductItemBinding
 import com.google.android.material.chip.Chip
 
-class ProductAdapter(private val products: List<Product>, private val selectedProduct: (Product) -> Unit): RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(private val products: List<Product>, private val selectedProduct: (Product, View) -> Unit): RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     class ProductViewHolder(binding: ProductItemBinding): RecyclerView.ViewHolder(binding.root) {
         val tvProductName: TextView = binding.tvProductName
@@ -45,8 +46,11 @@ class ProductAdapter(private val products: List<Product>, private val selectedPr
 
         }
 
+        // Set the transition name on the ImageView
+        holder.ivProductImage.transitionName = "product_image_transition_$position"
+
         holder.itemView.setOnClickListener {
-            selectedProduct(currentItem)
+            selectedProduct(currentItem, holder.ivProductImage)
 
             val deeplink = "myapp://kuekue//shareProduct?category=vegan&sort=price&filter=cheese"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(deeplink))

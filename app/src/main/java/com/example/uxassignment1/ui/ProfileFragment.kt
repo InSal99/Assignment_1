@@ -265,7 +265,6 @@ class ProfileFragment : Fragment() {
                 commit()
             }
         }
-
     }
 
 }
